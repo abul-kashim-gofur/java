@@ -119,6 +119,7 @@ the .tar.gz.
 * `node['java']['oracle']['jce']['home']` - Where the JCE policy files should be installed to
 * `node['java']['oracle']['jce'][java_version]['checksum']` - Checksum of the JCE policy zip. Can be sha256 or md5
 * `node['java']['oracle']['jce'][java_version]['url']` - URL which to download the JCE policy zip
+* `node['java']['oracle']['update_symlink']` - Determines whether to update JAVA_HOME symlink to new Oracle Java install directory, defaults to true
 
 Recipes
 -----
@@ -303,6 +304,9 @@ By default, the extracted directory is extracted to
   boolean true or false
 - `use_alt_suffix`: whether '_alt' suffix is used for not default javas
   boolean true or false
+- `update_symlink`: Whether the JAVA_HOME symlink is made to the install dir, default to true
+  boolean true or false
+
 
 #### Examples
 ```ruby

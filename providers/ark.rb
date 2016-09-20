@@ -204,15 +204,17 @@ action :install do
   end
 
   # link app_home to app_dir
-  Chef::Log.debug "app_home is #{app_home} and app_dir is #{app_dir}"
-  current_link = ::File.symlink?(app_home) ? ::File.readlink(app_home) : nil
-  if current_link != app_dir
-    description = "Symlink #{app_dir} to #{app_home}"
-    converge_by(description) do
-      Chef::Log.debug "Symlinking #{app_dir} to #{app_home}"
-      FileUtils.rm_f app_home
-      FileUtils.ln_sf app_dir, app_home
-      FileUtils.chown new_resource.owner, app_group, app_home
+  if new_resource.update_symlink
+    Chef::Log.debug "app_home is #{app_home} and app_dir is #{app_dir}"
+    current_link = ::File.symlink?(app_home) ? ::File.readlink(app_home) : nil
+    if current_link != app_dir
+      description = "Symlink #{app_dir} to #{app_home}"
+      converge_by(description) do
+        Chef::Log.debug "Symlinking #{app_dir} to #{app_home}"
+        FileUtils.rm_f app_home
+        FileUtils.ln_sf app_dir, app_home
+        FileUtils.chown new_resource.owner, app_group, app_home
+      end
     end
   end
 

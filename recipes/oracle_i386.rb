@@ -64,6 +64,7 @@ java_ark 'jdk-alt' do
   retry_delay node['java']['ark_retries']
   use_alt_suffix node['java']['use_alt_suffix']
   reset_alternatives node['java']['reset_alternatives']
+  update_symlink node['java']['oracle']['update_symlink']
   action :install
   default false
   notifies :write, 'log[jdk-version-changed]', :immediately

@@ -2,6 +2,12 @@ Java Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the Java cookbook.
 
+v1.43.0-opt-symlink - 19/09/2016
+-----
+- Option to create symlink that will link JAVA_HOME to installation directory
+- If jce enabled converge will fail
+- If ran on debian platfrom converge will fail
+
 v1.42.0 - 8/8/2016
 -----
 - Use openjdk ppa for all ubuntu versions to allow for older/newer jdks to be installed. Fixes #368

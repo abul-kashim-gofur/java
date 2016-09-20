@@ -146,3 +146,6 @@ default['java']['oracle']['jce']['7']['checksum'] = '7a8d790e7bd9c2f82a83baddfae
 default['java']['oracle']['jce']['6']['url'] = 'http://download.oracle.com/otn-pub/java/jce_policy/6/jce_policy-6.zip'
 default['java']['oracle']['jce']['6']['checksum'] = 'd0c2258c3364120b4dbf7dd1655c967eee7057ac6ae6334b5ea8ceb8bafb9262'
 default['java']['oracle']['jce']['home'] = '/opt/java_jce'
+
+# Determines whether to update JAVA_HOME symlink to new Oracle Java install directory
+default['java']['oracle']['update_symlink'] = true
